@@ -2,7 +2,7 @@
 apply plugin: 'com.android.library'
 
 ext {
-    PUBLISH_GROUP_ID = "com.kongzue.dialogx.style"		//项目包名
+    PUBLISH_GROUP_ID = "io.github.sjandy88"		//项目包名
     PUBLISH_ARTIFACT_ID = 'DialogXInterface'			//项目名
     PUBLISH_VERSION = DIALOGX_STYLE_VERSION					//版本号
 }

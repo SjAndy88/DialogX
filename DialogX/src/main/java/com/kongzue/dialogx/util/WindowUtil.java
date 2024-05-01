@@ -11,6 +11,7 @@ import static android.view.WindowManager.LayoutParams.TYPE_APPLICATION_ATTACHED_
 import static android.view.WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
 import static android.view.WindowManager.LayoutParams.TYPE_PHONE;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -29,6 +30,8 @@ import com.kongzue.dialogx.DialogX;
 import com.kongzue.dialogx.interfaces.BaseDialog;
 import com.kongzue.dialogx.interfaces.NoTouchInterface;
 
+import java.lang.reflect.Field;
+
 /**
  * @author: Kongzue
  * @github: https://github.com/kongzue/
@@ -37,6 +40,8 @@ import com.kongzue.dialogx.interfaces.NoTouchInterface;
  * @createTime: 2021/4/29 16:02
  */
 public class WindowUtil {
+
+    private static int SYSTEM_FLAG_SHOW_FOR_ALL_USERS = 0x00000010;
     
     public static void show(Activity activity, View dialogView, boolean touchEnable) {
         try {
@@ -88,6 +93,9 @@ public class WindowUtil {
                 FLAG_TRANSLUCENT_NAVIGATION |
                 FLAG_LAYOUT_IN_SCREEN
         ;
+        if (DialogX.globalHoverWindowForAllUser) {
+            setFlagForAllUser(layoutParams);
+        }
         layoutParams.softInputMode = SOFT_INPUT_ADJUST_RESIZE;
         if (!touchEnable) {
             dialogView.setOnTouchListener(new View.OnTouchListener() {
@@ -119,4 +127,15 @@ public class WindowUtil {
             manager.removeViewImmediate((View) dialogView.getParent());
         }
     }
+
+    public static void setFlagForAllUser(WindowManager.LayoutParams layoutParams) {
+        try {
+            @SuppressLint("DiscouragedPrivateApi") Field declaredField = WindowManager.LayoutParams.class.getDeclaredField("privateFlags");
+            declaredField.setAccessible(true);
+            declaredField.set(layoutParams, SYSTEM_FLAG_SHOW_FOR_ALL_USERS);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 }

@@ -4,7 +4,7 @@ group = "com.kongzue.dialogx"
 version = BUILD_VERSION
 
 ext {
-    PUBLISH_GROUP_ID = "com.kongzue.dialogx"		//项目包名
+    PUBLISH_GROUP_ID = "io.github.sjandy88"		//项目包名
     PUBLISH_ARTIFACT_ID = 'DialogX'			//项目名
     PUBLISH_VERSION = BUILD_VERSION					//版本号
 }
