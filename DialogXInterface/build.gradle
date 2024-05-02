@@ -1,6 +1,9 @@
 //apply plugin: 'java-library'
 apply plugin: 'com.android.library'
 
+group = "io.github.sjandy88"
+version = DIALOGX_STYLE_VERSION
+
 ext {
     PUBLISH_GROUP_ID = "io.github.sjandy88"		//项目包名
     PUBLISH_ARTIFACT_ID = 'DialogXInterface'			//项目名

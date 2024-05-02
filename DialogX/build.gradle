@@ -1,6 +1,6 @@
 apply plugin: 'com.android.library'
 
-group = "com.kongzue.dialogx"
+group = "io.github.sjandy88"
 version = BUILD_VERSION
 
 ext {
@@ -41,6 +41,6 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     compileOnly files('libs\\androidx-rs.jar')
 //    api files('libs\\DialogXInterface.jar')
-//    api project(path: ':DialogXInterface')
-    api "com.kongzue.dialogx.style:DialogXInterface:${DIALOGX_STYLE_VERSION}"
+    api project(path: ':DialogXInterface')
+//    api "com.kongzue.dialogx.style:DialogXInterface:${DIALOGX_STYLE_VERSION}"
 }

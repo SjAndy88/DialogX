@@ -39,9 +39,9 @@ publishing {
             // Self-explanatory metadata for the most part
             pom {
                 name = PUBLISH_ARTIFACT_ID
-                description = 'Kongzue DialogX'
+                description = 'FLZTSJ DialogX'
                 // If your project has a dedicated site, use its URL here
-                url = 'https://github.com/kongzue/DialogX/'
+                url = 'https://github.com/SjAndy88/DialogX'
                 licenses {
                     license {
                         //协议类型，一般默认Apache License2.0的话不用改：
@@ -51,18 +51,18 @@ publishing {
                 }
                 developers {
                     developer {
-                        id = 'kongzue'
-                        name = 'kongzue'
-                        email = 'myzcxhh@live.cn'
+                        id = 'flztsj'
+                        name = 'flztsj'
+                        email = 'flztsj@gmail.com'
                     }
                 }
                 // Version control info, if you're using GitHub, follow the format as seen here
                 scm {
                     //修改成你的Git地址：
-                    connection = 'scm:git:github.com/kongzue/DialogX.git'
-                    developerConnection = 'scm:git:ssh://github.com/kongzue/DialogX.git'
+                    connection = 'scm:git:github.com/SjAndy88/DialogX'
+                    developerConnection = 'scm:git:ssh://github.com/SjAndy88/DialogX'
                     //分支地址：
-                    url = 'https://github.com/kongzue/DialogX/tree/master'
+                    url = 'https://github.com/SjAndy88/DialogX/tree/MavenCentral-0.0.48'
                 }
                 // A slightly hacky fix so that your POM will include any transitive dependencies
                 // that your library builds upon
@@ -80,14 +80,14 @@ publishing {
         }
     }
     repositories {
-        // The repository to publish to, Sonatype/MavenCentral
+        // The repository to publish to, Sonatype/MavenCent ral
         maven {
             // This is an arbitrary name, you may also use "mavencentral" or
             // any other name that's descriptive for you
             name = "DialogX"
 
-            def releasesRepoUrl = "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
-            def snapshotsRepoUrl = "https://oss.sonatype.org/content/repositories/snapshots/"
+            def releasesRepoUrl = "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/"
+            def snapshotsRepoUrl = "https://s01.oss.sonatype.org/content/repositories/snapshots/"
             // You only need this if you want to publish snapshots, otherwise just set the URL
             // to the release repo directly
             url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
